@@ -17,7 +17,7 @@ abstract class Server {
 
 		switch (request.url.toString()) {
 			
-			case 'list-items':
+			case 'items':
 				return Response.ok(_encode(await API.index()));
 			
 			default:
@@ -29,7 +29,7 @@ abstract class Server {
 
 		switch (request.url.toString()) {
 			
-			case 'add-item':
+			case 'item':
 				try { 
 					dynamic data = await _decode(request);
 					return Response.ok(_encode(await API.addItem(data))); 
