@@ -1,3 +1,4 @@
+[![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 # dart-postgres-example
 Example project demonstrating how to build web APIs with [Dart](https://dart.dev), [Shelf](https://pub.dartlang.org/packages/shelf), and [PostgreSQL](https://postgresql.org).
 
@@ -16,6 +17,10 @@ To run and test the server:
 * Run the server with `$ dart bin/server.dart`
 * Create items with `$ curl -X POST localhost:9001/item -d '{"name":"test"}'`
 * List items with `$ curl localhost:9001/items`
+
+You can open this project in a free and ready-to-code Gitpod dev environment.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 ## Contribution
 If you notice something out of place or in need of some improvements: issues, pull requests, and other contributions are welcome.
