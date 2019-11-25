@@ -1,0 +1,28 @@
+image:
+  file: .gitpod.Dockerfile
+
+# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/43_config_ports/
+ports:
+  - port: 9001
+    onOpen: ignore
+  - port: 5432 
+    onOpen: ignore
+
+# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
+tasks:
+  - before: ./db_create.sh
+    init: pub install
+    command: dart bin/server.dart
+  - command: >
+      gp await-port 9001 &&
+      printf "\nadding two items\n----------------\n" &&
+      curl -X POST localhost:9001/item -d '{"name":"my item"}' &&
+      curl -X POST localhost:9001/item -d '{"name":"another item"}' &&
+      printf "\n\nfetching items\n----------------\n" &&
+      curl localhost:9001/items &&
+      printf "\n"
+    openMode: split-right
+
+vscode:
+  extensions:
+    - Dart-Code.dart-code@3.6.0:OIKJQXmfWHoIMVCiWrcLsQ==
